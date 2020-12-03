@@ -1,5 +1,5 @@
 # appvue
-
+https://www.youtube.com/watch?v=2xHM2wfyqNg
 ## Project setup
 ```
 yarn install
