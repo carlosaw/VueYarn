@@ -9,7 +9,8 @@ yarn install
 ```
 yarn serve
 ```
-
+jquery@1.9.1 - 3
+popper.js@^1.16.1
 ### Compiles and minifies for production
 ```
 yarn build
