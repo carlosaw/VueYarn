@@ -24,7 +24,7 @@
             <td>{{usuario.phone}}</td>
             <td>{{usuario.email}}</td>
             <td>
-                <button class="btn btn-info btn-sm" v-on:click="editar(usuario.id)">Editar</button>  
+                <button class="btn btn-info btn-sm" v-on:click="editar(index)">Editar</button>  
                 <button class="btn btn-danger btn-sm" v-on:click="excluir(index)">Excluir</button>
             </td>
             
@@ -71,6 +71,46 @@
         </p>
         <button class="btn btn-success" v-on:click="adicionar">Adicionar</button>
       </div>
+      <hr/>
+      <h1>Editar usuário</h1>
+      <div class="form-group">
+        <p>
+          <input placeholder="id" type="text"
+            v-model="id"
+            name="idUsuario"
+            class="form-control"
+          />
+        </p>
+        <p>
+          <input placeholder="Name" type="text"
+            v-model="name"
+            name="nameUsuario"
+            class="form-control"
+          />
+        </p>
+        <p>
+          <input placeholder="Address" type="text"
+            v-model="address"
+            name="addressUsuario"
+            class="form-control"
+          />
+        </p>
+        <p>
+          <input placeholder="Phone" type="text"
+            v-model="phone"
+            name="phoneUsuario"
+            class="form-control"
+          />
+        </p>
+        <p>
+          <input placeholder="E-mail" type="text"
+            v-model="email"
+            name="emailUsuario"
+            class="form-control"
+          />
+        </p>
+        <button class="btn btn-success" v-on:click="editar">Editar</button>
+      </div>
     </div>
   </div>
 </template>
@@ -111,8 +151,19 @@ export default {
       this.phone='',
       this.email=''
     },
-    editar(parametro) {
-      this.usuarios.update(parametro);
+    editar() {
+      this.usuarios.update({        
+        id:this.id,
+        name:this.name,
+        address:this.address,
+        phone:this.phone,
+        email:this.email
+      });
+        this.id=this.usuario.id,
+        this.name='',
+        this.address='',
+        this.phone='',
+        this.email=''
     },
     excluir(parametro) {
       this.usuarios.splice(parametro, 1);
